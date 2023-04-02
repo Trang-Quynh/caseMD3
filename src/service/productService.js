@@ -32,8 +32,8 @@ class ProductService{
 
     set = (id, editProduct) =>{
         return new Promise((resolve, reject)=>{
-            console.log(editProduct.name_product)
-            this.connect.query(`update products set name_product = '${editProduct.name_product}', price = '${editProduct.price}', description = '${editProduct.description}', id_category = '${editProduct.id_category}' where id = ${id}`,(err,products)=>{
+            console.log(editProduct.editImage)
+            this.connect.query(`update products set name_product = '${editProduct.name_product}', price = '${editProduct.price}', description = '${editProduct.description}', id_category = '${editProduct.id_category}',image = '${editProduct.editImage}' where id = ${id}`,(err,products)=>{
                 if(err){
                     reject(err)
                 }else{
@@ -55,8 +55,8 @@ class ProductService{
     }
     addProductSql = (addProduct) =>{
         return new Promise((resolve, reject)=>{
-            console.log(addProduct.name_product)
-            this.connect.query(`insert into products(name_product,price,description,id_category) values('${addProduct.name_product}','${addProduct.price}', '${addProduct.description}', '${addProduct.id_category}')`,(err,products)=>{
+            console.log(addProduct.image)
+            this.connect.query(`insert into products(name_product,price,description,id_category,image) values('${addProduct.name_product}','${addProduct.price}', '${addProduct.description}', '${addProduct.id_category}','${addProduct.image}')`,(err,products)=>{
                 if(err){
                     reject(err)
                 }else{
