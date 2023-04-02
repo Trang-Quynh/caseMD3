@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add</title>
+</head>
+<body>
+<h1>Thêm mới sản phẩm</h1>
+<form action="" method="POST" onsubmit="return confirm ('Bạn có chắc chắn muốn thêm không?')" >
+  <table>
+    <tr>
+      <td> Product name:</td>
+      <td> <input type="text" name="name_product"></td>
+    </tr>
+    <tr>
+      <td> Price:</td>
+      <td><input type="text" name="price"></td>
+    </tr>
+    <tr>
+      <td>  Description:</td>
+      <td> <input type="text" name="description"></td>
+    </tr>
+    <tr>
+      <td> Category: </td>
+      <td>
+        <select name="id_category">
+          {category}
+        </select>
+      </td>
+    </tr>
+  </table>
+  <button type="submit">Submit</button>
+</form>
+</body>
+</html>

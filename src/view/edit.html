@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+<form action="" method="POST" onsubmit="return confirm ('Bạn có chắc chắn muốn sửa không?')" >
+    <table>
+        <tr>
+            <td> Product name:</td>
+            <td> <input type="text" value="{name}" name="name_product"></td>
+        </tr>
+        <tr>
+            <td> Price:</td>
+            <td><input type="text" value="{price}" name="price"></td>
+        </tr>
+        <tr>
+            <td>  Description:</td>
+            <td> <input type="text" value="{description}" name="description"></td>
+        </tr>
+        <tr>
+            <td> Category: </td>
+            <td>
+                <select name="id_category">
+                    {category}
+                </select>
+            </td>
+        </tr>
+    </table>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>
