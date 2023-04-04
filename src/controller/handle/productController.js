@@ -12,7 +12,7 @@ class ProductController{
                         <td>${item.id}</td>
                         <td>${item.name_product}</td>
                         <td>${item.price}</td>
-                        <td><img src="${item.image}" style="width:50px; height=50px"></td>
+                        <td><img src="${item.image}" style="width:50px; height=50px" class="img-fluid"></td>
                         <td>${item.name_category}</td>
                         <td><a type="button" class="btn btn-outline-success" href="/edit/${item.id}">Update</a></td>
                         <td>
@@ -28,28 +28,28 @@ class ProductController{
         indexHtml = indexHtml.replace('{products}', productsHtml)
         return indexHtml
     }
-    showHome = async (req,res) =>{
-        if(req.method === 'GET') {
+    showHome = async (req,res) => {
+        if (req.method === 'GET') {
             fs.readFile('./view/home.html', 'utf-8', async (err, indexHtml) => {
                 let products = await productService.findAll()
                 indexHtml = this.getHtmlProducts(products, indexHtml)
                 res.write(indexHtml);
                 res.end()
             })
-        }else{
-            const buffers = [];
-            for await (const chunk of req){
-                buffers.push(chunk)
+        } else {
+                const buffers = [];
+                for await (const chunk of req){
+                    buffers.push(chunk)
+                }
+                const data = Buffer.concat(buffers).toString();
+                const product = qs.parse(data);
+                if(product.idDelete){
+                    let id = product.idDelete
+                    await productService.deleteById(id)
+                    res.writeHead(301, {location: '/home'})
+                    res.end();
+                }
             }
-            const data = Buffer.concat(buffers).toString();
-            const product = qs.parse(data);
-            if(product.idDelete){
-                let id = product.idDelete
-                await productService.deleteById(id)
-                res.writeHead(301, {location: '/home'})
-                res.end();
-            }
-        }
     }
     editProduct = async (req,res,id)=>{
         if (req.method === 'GET') {
