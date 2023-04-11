@@ -4,7 +4,7 @@ class Connection{
         host: 'localhost',
         user: 'root',
         password: 'trang',
-        database: 'store',
+        database: 'student_manager',
         charset: 'utf8_general_ci'
     }
     getConnection = () =>{

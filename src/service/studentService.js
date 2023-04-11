@@ -1,6 +1,6 @@
 const connection = require('../entity/connection.js')
 // connection la mot object dung de connect
-class ProductService{
+class StudentService {
     connect;
     constructor(){
         connection.connectToMySQL();
@@ -8,11 +8,11 @@ class ProductService{
     }
     findById = (id)=>{
         return new Promise((resolve, reject)=>{
-            this.connect.query(`select products.*, category.name_category from products inner join category on products.id_category = category.id where products.id = ${id}`,(err,products)=>{
+            this.connect.query(`select student.*, class.class_name from student inner join class on student.class_id = class.class_id where student.id = ${id}`,(err,students)=>{
                 if(err){
                     reject(err)
                 }else{
-                    resolve(products[0])
+                    resolve(students[0])
                 }
             })
         })
@@ -20,20 +20,19 @@ class ProductService{
 
     findAll = () =>{
         return new Promise((resolve, reject)=>{
-            this.connect.query('select products.*, c.name_category from products inner join category c on products.id_category = c.id',(err,products)=>{
+            this.connect.query('select student.*, class.class_name from student inner join class on student.id = class.class_id',(err,students)=>{
                 if(err){
                     reject(err)
                 }else{
-                    resolve(products)
+                    resolve(students)
                 }
             })
         })
     }
 
-    set = (id, editProduct) =>{
+    set = (id, editStudent) =>{
         return new Promise((resolve, reject)=>{
-            console.log(editProduct.editImage)
-            this.connect.query(`update products set name_product = '${editProduct.name_product}', price = '${editProduct.price}', description = '${editProduct.description}', id_category = '${editProduct.id_category}',image = '${editProduct.editImage}' where id = ${id}`,(err,products)=>{
+            this.connect.query(`update student set name = '${editStudent.name}',class_id = '${editStudent.class_id}',  practical_grade = '${editStudent.practical_grade}', theory_grade = '${editStudent.theory_grade}',evaluate = '${editStudent.evaluate}', description = '${editStudent.description}' where student.id = ${id}`,(err,students)=>{
                 if(err){
                     reject(err)
                 }else{
@@ -44,7 +43,7 @@ class ProductService{
     }
     deleteById = (id) =>{
         return new Promise((resolve, reject)=>{
-            this.connect.query(`delete from products where id = ${id}`,(err,products)=>{
+            this.connect.query(`delete from student where id = ${id}`,(err,student)=>{
                 if(err){
                     reject(err)
                 }else{
@@ -53,10 +52,9 @@ class ProductService{
             })
         })
     }
-    addProductSql = (addProduct) =>{
+    addStudentSql = (addStudent) =>{
         return new Promise((resolve, reject)=>{
-            console.log(addProduct.image)
-            this.connect.query(`insert into products(name_product,price,description,id_category,image) values('${addProduct.name_product}','${addProduct.price}', '${addProduct.description}', '${addProduct.id_category}','${addProduct.image}')`,(err,products)=>{
+            this.connect.query(`insert into student(name, class_id, practical_grade, theory_grade, evaluate, description) values('${addStudent.name}','${addStudent.class_id}','${addStudent.practical_grade}','${addStudent.theory_grade}','${addStudent.evaluate}', '${addStudent.description}')`,(err,students)=>{
                 if(err){
                     reject(err)
                 }else{
@@ -66,4 +64,4 @@ class ProductService{
         })
     }
 }
-module.exports = new ProductService()
+module.exports = new StudentService()

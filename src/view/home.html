@@ -6,25 +6,30 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
 </head>
 <body>
-<a href="/add">Add</a>
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th scope="col">No</th>
-        <th scope="col">Id</th>
-        <th scope="col">Name</th>
-        <th scope="col">Price</th>
-        <th scope="col">Image</th>
-        <th scope="col">Category</th>
-        <th style="text-align: center" scope="col" colspan="2">Action</th>
-    </tr>
-    </thead>
-    {products}
-</table>
-<form action="" methos="POST">
-    <button type="button" name="signout">Sign out</button>
-</form>
+
+
+<div style="display: flex; align-items: center;justify-content: space-between; margin-top: 20px">
+    <button style="color:dimgrey; margin-left: 5px; position: fixed; top: 50px; left: 5px;"><a href="/add" style="color:grey" >Add</a></button>
+    <table class="table table-striped"  style="border: 2px solid gray;position: fixed; top: 50px; left: 70px; right: 10px; width: 1300px" >
+        <thead>
+        <tr>
+            <th scope="col" >No</th>
+            <th scope="col" >Id</th>
+            <th scope="col" >Name</th>
+            <th scope="col" >Diem thuc hanh</th>
+            <th scope="col" >Diem ly thuyet</th>
+            <th scope="col" >Danh gia</th>
+            <th scope="col" >Mo ta</th>
+            <th style="text-align: center" scope="col" colspan="2">Action</th>
+        </tr>
+        </thead>
+        {student}
+    </table>
+</div>
+
+
 </body>
 </html>

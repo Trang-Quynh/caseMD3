@@ -1,10 +1,7 @@
-const productController = require('./handle/productController')
-const userController = require('./handle/userController')
+const studentController = require('./handle/studentController')
 const router = {
-    'home': productController.showHome,
-    'edit': productController.editProduct,
-    'add': productController.addProduct,
-    '': userController.login,
-    'signup': userController.signup
+    'home': studentController.showHome,
+    'edit': studentController.editStudent,
+    'add': studentController.addStudent
 }
 module.exports = router

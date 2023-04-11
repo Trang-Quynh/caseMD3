@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add</title>
+</head>
+<body>
+<h1>Thêm mới sản phẩm</h1>
+<form action="" method="POST" onsubmit="return confirm ('Bạn có chắc chắn muốn thêm không?')" >
+  <table>
+    <tr>
+      <td> Name: </td>
+      <td> <input type="text" name="name"></td>
+    </tr>
+    <tr>
+      <td> Diem thuc hanh :</td>
+      <td><input type="text" name="practical_grade"></td>
+    </tr>
+    <tr>
+      <td> Diem ly thuyet: </td>
+      <td><input type="text" name="theory_grade"></td>
+    </tr>
+    <tr>
+      <td> Danh gia: </td>
+      <td><select name="evaluate">
+        <option value="Dat">Dat</option>
+        <option value="Khong dat">Khong dat</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td>  Description:</td>
+      <td> <input type="text" name="description" autocomplete="off"></td>
+    </tr>
+    <tr>
+      <td> Lop: </td>
+      <td>
+        <select name="class_id">
+          {class}
+        </select>
+      </td>
+    </tr>
+  </table>
+  <button type="submit">Submit</button>
+</form>
+
+
+</body>
+</html>
